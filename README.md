@@ -1,1 +1,4 @@
-Check out http://shopify.github.com/dashing for more information.
+# Personal Dashboard
+
+## Explanation
+This is basically an excuse for me to play around with dashing.
