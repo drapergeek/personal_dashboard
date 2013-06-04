@@ -1,20 +1,20 @@
 require 'net/http'
 require 'xmlsimple'
+require_relative '../lib/weather_updater'
 
 # Get a WOEID (Where On Earth ID)
 # for your location from here:
-# http://woeid.rosselliot.co.nz/
-woe_id = 12758707
+# http://woe_id.rosselliot.co.nz/
 
-# Temerature format:
-# 'c' for Celcius
-# 'f' for Fahrenheit
-format = 'f'
+# {city_name: 'Boston', woe_id: 12345}
+cities = []
+cities << {city: 'Boston', woe_id: 12758707}
+cities << {city: 'Blacksburg', woe_id: 2365044}
+cities << {city: 'Martinsville', woe_id: 2446415}
 
 SCHEDULER.every '15m', :first_in => 0 do |job|
-  http = Net::HTTP.new('weather.yahooapis.com')
-  response = http.request(Net::HTTP::Get.new("/forecastrss?w=#{woe_id}&u=#{format}"))
-  weather_data = XmlSimple.xml_in(response.body, { 'ForceArray' => false })['channel']['item']['condition']
-  weather_location = XmlSimple.xml_in(response.body, { 'ForceArray' => false })['channel']['location']
-  send_event('weather', { :temp => "#{weather_data['temp']}&deg;#{format.upcase}", :condition => weather_data['text'], :title => "#{weather_location['city']} Weather"})
+  cities.each do |city|
+    WeatherUpdater.new(city[:city], city[:woe_id]).update
+  end
 end
+
