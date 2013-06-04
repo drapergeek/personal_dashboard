@@ -53,9 +53,11 @@ GEM
     thor (0.17.0)
     tilt (1.3.6)
     tzinfo (0.3.37)
+    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   dashing
+  xml-simple
