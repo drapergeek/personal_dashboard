@@ -36,7 +36,7 @@ class News
   end
 
   def truncate(given_string)
-    if given_string.length > 200
+    if given_string.length > 100
       given_string[0..200]+"..."
     else
       given_string
