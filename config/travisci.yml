@@ -1,0 +1,4 @@
+org:
+  repositories:
+    ci_travis_kix: drapergeek/kix
+    ci_travis_luckycharms: drapergeek/luckycharms
