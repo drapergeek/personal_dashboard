@@ -3,18 +3,17 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-office_location = URI::encode('42.265554, -71.025007')
+office_location = URI::encode('42.265554,-71.025006')
 key  = URI::encode(ENV['TOMTOM_APP_API_KEY'])
 locations = []
-locations << { name: "Constant Contact", location: URI::encode('42.418846,-71.259030') } # example location format
+locations << { name: "Constant Contact", location: URI::encode('42.418846,-71.25903') } # example location format
 
-SCHEDULER.every '10m', :first_in => '15s' do |job|
+SCHEDULER.every '10m', :first_in => '5s' do |job|
   routes = []
 
   # pull data
   locations.each do |location|
     uri = URI.parse("https://api.tomtom.com/lbs/services/route/3/#{office_location}:#{location[:location]}/Quickest/json?avoidTraffic=true&includeTraffic=true&language=en&day=today&time=now&iqRoutes=2&avoidTolls=false&includeInstructions=true&projection=EPSG4326&key=#{key}")
-    p uri
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
