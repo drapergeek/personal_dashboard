@@ -1,4 +1,4 @@
-class Dashing.Traffic extends Dashing.Widget
+class Dashing.Transit extends Dashing.Widget
 
   ready: ->
     # This is fired when the widget is done being rendered

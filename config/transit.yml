@@ -1,0 +1,33 @@
+work:
+  origin: '41 Winter St, Boston MA 02108'
+  locations:
+    - name: 'Home'
+      address: '130 Taylor St, Quincy MA 02170'
+      mode: 'transit'
+    - name: 'Apple Store'
+      address: '815 Boyslton St, Boston MA 02116'
+      mode: 'transit'
+    - name: 'Apple Store Walking'
+      address: '815 Boyslton St, Boston MA 02116'
+      mode: 'walking'
+home:
+  origin: '130 Taylor St, Quincy MA 02170'
+  locations:
+    - name: 'thoughtbot'
+      address: '41 Winter St, Boston MA 02108'
+      mode: 'transit'
+    - name: 'Apple Store'
+      address: '815 Boyslton St, Boston MA 02116'
+      mode: 'transit'
+homedriving:
+  origin: '130 Taylor St, Quincy MA 02170'
+  locations:
+    - name: 'Constant Contact'
+      address: '160 Trapelo Td, Waltham MA 02451'
+      mode: 'driving'
+    - name: 'AMC Braintree'
+      address: '121 Grandview Rd, Braintree MA 02184'
+      mode: 'driving'
+    - name: 'Wrentham Outlets'
+      address: '1 Premium Outlet Blvd, Wrentham MA 02093'
+      mode: 'driving'
