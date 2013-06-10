@@ -28,7 +28,7 @@ class News
     doc = Nokogiri::XML(response.body)
     news_headlines = [];
     doc.xpath('//channel/item').each do |news_item|
-      title = clean_html( news_item.xpath('title').text )
+      title = truncate(clean_html( news_item.xpath('title').text ))
       summary = truncate(clean_html( news_item.xpath('description').text ))
       news_headlines.push({ title: title, description: summary})
     end
