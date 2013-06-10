@@ -1,20 +1,8 @@
 <h1 class="title" data-bind="title"></h1>
 
-<img width="300" height="300" src="/assets/travis-mascot-600px.png" data-addclass-ok="item.state">
+<p class="branch" data-bind="branch"></p>
 
-<ol>
-  <li data-foreach-item="items">
-    <span class="label" data-bind="item.label"></span>
-    <span class="value" data-bind="item.value"></span>
-  </li>
-</ol>
-
-<ul class="list-nostyle">
-  <li data-foreach-item="items">
-    <span class="label" data-bind="item.label"></span>
-    <span class="value" data-bind="item.value"></span>
-  </li>
-</ul>
+<h2 class='duration' data-bind="duration_state"></h2>
 
 <p class="more-info" data-bind="moreinfo"></p>
 <p class="updated-at" data-bind="updatedAtMessage"></p>
