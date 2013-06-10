@@ -3,8 +3,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-office_location = URI::encode('42.265554,-71.025006')
-key  = URI::encode(ENV['TOMTOM_APP_API_KEY'])
+OFFICE_LOCATION = URI::encode('42.265554,-71.025006')
+KEY  = URI::encode(ENV['TOMTOM_APP_API_KEY'])
 locations = []
 locations << {
   name: "Constant Contact",
@@ -21,12 +21,16 @@ locations << {
   location: URI::encode('42.038313,-71.352682')
 }
 
+def api_url_for(location)
+  "https://api.tomtom.com/lbs/services/route/3/#{OFFICE_LOCATION}:#{location}/Quickest/json?avoidTraffic=true&includeTraffic=true&language=en&day=today&time=now&iqRoutes=2&avoidTolls=false&includeInstructions=true&projection=EPSG4326&key=#{KEY}"
+end
+
 SCHEDULER.every '10m', :first_in => '5s' do |job|
   routes = []
 
   # pull data
   locations.each do |location|
-    uri = URI.parse("https://api.tomtom.com/lbs/services/route/3/#{office_location}:#{location[:location]}/Quickest/json?avoidTraffic=true&includeTraffic=true&language=en&day=today&time=now&iqRoutes=2&avoidTolls=false&includeInstructions=true&projection=EPSG4326&key=#{key}")
+    uri = URI.parse(api_url_for(location[:location]))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
