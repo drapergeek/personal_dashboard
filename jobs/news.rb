@@ -28,16 +28,16 @@ class News
     doc = Nokogiri::XML(response.body)
     news_headlines = [];
     doc.xpath('//channel/item').each do |news_item|
-      title = truncate(clean_html( news_item.xpath('title').text ))
+      title = truncate(clean_html( news_item.xpath('title').text ), 50)
       summary = truncate(clean_html( news_item.xpath('description').text ))
       news_headlines.push({ title: title, description: summary})
     end
     news_headlines
   end
 
-  def truncate(given_string)
-    if given_string.length > 100
-      given_string[0..200]+"..."
+  def truncate(given_string, length = 100)
+    if given_string.length > (length + 4)
+      given_string[0..length]+"..."
     else
       given_string
     end
@@ -48,7 +48,6 @@ class News
     html = Decoder.decode( html )
     return html
   end
-
 end
 
 @News = []
