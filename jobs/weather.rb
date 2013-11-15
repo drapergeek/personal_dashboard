@@ -8,8 +8,7 @@ require_relative '../lib/weather_updater'
 
 # {city_name: 'Boston', woe_id: 12345}
 cities = []
-cities << {city: 'Boston', woe_id: 12758707}
-cities << {city: 'Blacksburg', woe_id: 2365044}
+cities << {city: 'Raleigh', woe_id: 2478307}
 cities << {city: 'Martinsville', woe_id: 2446415}
 
 SCHEDULER.every '15m', :first_in => 0 do |job|
