@@ -1,38 +1,30 @@
-<script type='text/javascript'>
-$(function() {
-Dashing.gridsterLayout('[{"col":1,"row":1},{"col":3,"row":1},{"col":1,"row":2},{"col":3,"row":2},{"col":1,"row":3},{"col":2,"row":3},{"col":4,"row":3},{"col":3,"row":3}]')
-});
-</script>
+
 <% content_for(:title) { "Draper Dashboard" } %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="weather-raleigh" data-view="Weather"></div>
-    </li>
 
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="weather-martinsville" data-view="Weather"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="circle-ci-propelmarketing-launchpad-master" data-view="CircleCi" data-title="launchpad"></div>
     </li>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="weather-raleigh" data-view="Weather"></div>
+    </li>
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
       <div data-id="circle-ci-propelmarketing-darkwing-master" data-view="CircleCi" data-title="darkwing"></div>
     </li>
 
+    <li data-row="2" data-col="1" data-sizex="4" data-sizey="1">
+      <div data-id="github_status" data-view="GithubStatus" data-title="GitHub Status"></div>
+    </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="ci_travis_findit" data-view="Travis" data-unordered="true" data-title="findit"></div>
     </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="weather-martinsville" data-view="Weather"></div>
+    </li>
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="ci_travis_giftlist" data-view="Travis" data-unordered="true" data-title="giftlist"></div>
-    </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="ci_travis_shoulda_matchers" data-view="Travis" data-unordered="true" data-title="shoulda-matchers"></div>
-    </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="github_status" data-view="GithubStatus" data-title="GitHub Status"></div>
     </li>
 
   </ul>
