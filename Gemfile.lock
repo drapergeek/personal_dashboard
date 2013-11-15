@@ -124,6 +124,7 @@ PLATFORMS
 
 DEPENDENCIES
   dashing
+  dotenv
   foreman
   htmlentities
   httparty
