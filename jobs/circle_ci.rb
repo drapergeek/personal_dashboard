@@ -57,9 +57,9 @@ def build_data(project, auth_token)
     widget_class: "#{translate_status_to_class(latest_build['status'])}",
     committer_name: latest_build['committer_name'],
     commit_body: "\"#{latest_build['body']}\"",
-    avatar_url: "http://www.gravatar.com/avatar/#{email_hash}"
+    commit_message: latest_build["subject"],
+    avatar_url: "http://www.gravatar.com/avatar/#{email_hash}",
   }
-  return data
 end
 
 SCHEDULER.every '10s', :first_in => 0  do
