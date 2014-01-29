@@ -13,6 +13,12 @@ SCHEDULER.every '1h', :first_in => 0 do |job|
   response = http.request(request)
   stats = JSON.parse(response.body)
   current_gpa = stats['last_snapshot']['gpa'].to_f
-  last_gpa = stats['previous_snapshot']['gpa'].to_f
+
+  if stats['previous_snapshot']
+    last_gpa = stats['previous_snapshot']['gpa'].to_f
+  else
+    last_gpa = '4.0'
+  end
+
   send_event("code-climate", {current: current_gpa, last: last_gpa})
 end

@@ -2,8 +2,7 @@ require 'httparty'
 require 'digest/md5'
 
 projects = [
-  { user: 'propelmarketing', repo: 'launchpad', branch: 'master' },
-  { user: 'propelmarketing', repo: 'darkwing', branch: 'master' },
+  { user: 'thoughtbot', repo: 'klarna-uk', branch: 'master' },
 ]
 
 def duration(time)
