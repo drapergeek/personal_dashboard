@@ -3,6 +3,7 @@ require 'digest/md5'
 
 projects = [
   { user: 'thoughtbot', repo: 'switchboard', branch: 'master' },
+  { user: 'thoughtbot', repo: 'fmp', branch: 'master' },
 ]
 
 def duration(time)
