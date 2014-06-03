@@ -1,5 +1,2 @@
 org:
   repositories:
-    ci_travis_findit: drapergeek/findit
-    ci_travis_giftlist: drapergeek/giftlist
-    ci_travis_shoulda_matchers: thoughtbot/shoulda-matchers
